@@ -1,0 +1,9 @@
+model-conf:
+  num_classes: 2
+
+train-conf:
+  w_c: True
+  w_d: False
+  num_epochs: 20
+  batch_size: 8
+  lr: 0.0001
