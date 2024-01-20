@@ -70,7 +70,7 @@ U-Net architecture in the original paper：
        return []
    ```
 
-   > Ensure each function returns a list of tuples `(img, mask)`. Here, `img` should be a 3-channel tensor (e.g., (3, 512, 512)), and `mask` a 1-channel integer tensor (e.g., (512, 512)). The dimensions of `mask` should match `img`, and both height and width must be divisible by 32.
+   > Ensure that each function returns a list of tuples `(img, mask)`. In this context, `img` should be a three-channel tensor, for instance, (3, 512, 512), and `mask` should be a one-channel integer tensor, such as (512, 512). The dimensions of `mask` must correspond to those of `img`, with both the height and width being divisible by 32. Each element within `mask` represents the class of the pixel it corresponds to, ranging from `0` to `num_classes - 1`.
 
 4. **Initiate Training**
 
