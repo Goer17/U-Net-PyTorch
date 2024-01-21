@@ -14,7 +14,6 @@ class LazyLoader:
             self._data = self.load_func()
         return self._data
 
-PATH = 'deepglobe'
 to_tensor = transforms.ToTensor()
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 
