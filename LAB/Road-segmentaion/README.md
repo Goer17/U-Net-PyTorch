@@ -2,7 +2,7 @@
 
 In this task, we wish to train a model to segment road from some areas in google map.
 
-#### Dataset: DeepGlobe Road Dataset
+### Dataset: DeepGlobe Road Dataset
 
 <img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-134809.png" style="zoom:50%;" />
 
@@ -86,7 +86,21 @@ def load_test_dataset():
 
 
 
-#### Configuration
+
+
+### Training
+
+**Device in this lab**:
+
+<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-135426.png" style="zoom:67%;" />
+
+#### Configurations & Results
+
+
+
+##### Training Round-1
+
+**Configuration**:
 
 ```yaml
 model-conf:
@@ -100,18 +114,52 @@ train-conf:
   lr: 5e-5
 ```
 
+**Dataset size**:
+
+<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-165516.png" style="zoom:67%;" />
+
+**Loss & MIoU curves**:
+
+![Loss-Epoch](https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-164031.png)
+
+![MIoU-Epoch](https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-164210.png)
+
+**Test**:
+
+We deployed the model trained at the 25th epoch to the test set and observed some of the results:
+
+<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-22-021151.png" style="zoom:67%;" />
 
 
-#### Training
 
-**Device in this lab**:
+##### Training Round-2
 
-<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-135426.png" style="zoom:67%;" />
+**Configuration**:
 
-**Start training**
+```yaml
+model-conf:
+  num_classes: 2
 
-```shell
-python train_model
+train-conf:
+  w_c: True
+  w_d: False
+  num_epochs: 50
+  batch_size: 2
+  lr: 5e-5
 ```
 
-<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-135926.png" style="zoom:67%;" />
+**Dataset Size**:
+
+<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-21-170006.png" style="zoom:67%;" />
+
+**Loss & MIoU curves**:
+
+![Loss-Epoch](https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-22-021241.png)
+
+![MIoU-EPoch](https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-22-021318.png)
+
+**Test**:
+
+We deployed the model trained at the 40th epoch to the test set and observed some of the results:
+
+<img src="https://typora-1313035735.cos.ap-nanjing.myqcloud.com/img/2024-01-22-022044.png" style="zoom:67%;" />

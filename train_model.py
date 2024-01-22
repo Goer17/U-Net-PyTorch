@@ -1,7 +1,13 @@
+import os
 import yaml
 from model.UNet import UNet
 from model.Trainer import Trainer
 from data import train_dataset, val_dataset
+
+if not os.path.exists('model-params'):
+    os.makedirs('model-params')
+if not os.path.exists('result'):
+    os.makedirs('result')
 
 with open('config.yaml', 'r') as conf:
     conf = yaml.safe_load(conf)

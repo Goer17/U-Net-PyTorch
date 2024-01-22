@@ -92,7 +92,7 @@ This revised version maintains the original technical accuracy while enhancing c
 
 - [ ] Complete `w_d` generation task
 
-- [ ] Complete road segmentation experiment
+- [x] Complete road segmentation experiment
 
 - [ ] Complete object segmentation experiment on VOC2012 dataset
 
